@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f5="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Temperature Converter</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:growl  id="id_growl" showDetail="true"  showSummary="true" 
+                      life="2000"
+                      redisplay="false"/>
+            <f:ajax event="keyup" execute="tempID milesID"
+                    render="cField kField id_growl" >
+
+
+                <h:inputText id="tempID" 
+                             f5:placeholder="Temperature in Fahrenheit"
+                             value="#{ajax7.farheneitTemperature}">
+                    <f:validateRegex pattern = "[0-9]*"/>
+                </h:inputText>
+                <br/><br/>
+
+                <h:inputText id="milesID" 
+                             f5:placeholder="Miles"
+                             value="#{ajax7.miles}">
+                    <f:validateRegex pattern = "[0-9]*"/>
+                </h:inputText>
+            </f:ajax>
+
+            <h2>
+                Temperature in Celsius:
+                <h:outputText value="#{ajax7.celciusTemperature}"
+                              id="cField"/>
+            </h2>
+
+            <h2>
+                Kilometers:
+                <h:outputText value="#{ajax7.milesToKilometers()}"
+                              id="kField"/>
+            </h2>
+        </h:form>
+    </h:body>
+</html>

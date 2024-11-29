@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h1><b>Hi bonita!</b></h1>
+        <h2><b>Welcome to my dummy page!</b></h2>
+        <h2>In this place you get to see a sample of what I can do, which is basic stuff.</h2>
+        <h2>I can put a link in here and it will take you to...</h2>
+        <a href="https://www.google.com">Google</a>
+        <br/>
+        <h2>OR</h2>
+        <a href="https://www.youtube.com">Youtube</a>
+        <br/>
+        <h2>Nice right? Well I think is nice!! :)</h2>
+
+        <h:form id="form">
+            <p:growl id="globalgrowl" showDetail="false"
+                     showSummary="true" life="2000"/>
+            <p>Dummy account!</p>
+            <h2>Username</h2>
+            <p:inputMask value="#{logInBean.username}" placeholder="Username or name"/>
+            <br/>
+            <h2>Create Password</h2>
+            <p:password value="#{logInBean.password}" placeholder="Password" requiredMessage="Error. Try again" 
+                        required="true" title="password please">
+            </p:password>
+            <br/>
+            <h2>Confirm password</h2>
+            <p:password value="#{logInBean.confirmPassword}" placeholder="Confirm your password"
+                        required="true" requiredMessage="Confirm password is required" title="Re-enter your password"/>
+
+
+            <p:commandButton value="Create Account" action="#{logInBean.checkPassword}" update="globalgrowl"/>
+        </h:form> 
+    </h:body>
+</html>
