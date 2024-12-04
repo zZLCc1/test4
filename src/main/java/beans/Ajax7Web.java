@@ -37,7 +37,6 @@ private String km;
         return this.km;      
     }
 
-
     public String getFarheneitTemperature(){return farheneitTemperature;}
 
     public void setFarheneitTemperature(String farheneitTemperature)
@@ -45,12 +44,11 @@ private String km;
         this.farheneitTemperature = farheneitTemperature;
         this.celciusTemperature = convertFtoC();
         Utilities.addMessage(FacesMessage.SEVERITY_INFO, "farheneit=" + farheneitTemperature, "celcius=" + celciusTemperature);
-
     }
     public String getCelciusTemperature(){
         return celciusTemperature;
     }  
-    
+   
     private String convertFtoC()
     {
         if ( "".equals(this.farheneitTemperature ) ||farheneitTemperature == null )
